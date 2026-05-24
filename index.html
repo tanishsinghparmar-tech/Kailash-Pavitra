@@ -344,10 +344,10 @@
     border: 1px solid rgba(201,146,42,0.1); transition: all 0.3s; opacity: 0; transform: translateY(20px);
   }
   .spice-card.visible { opacity: 1; transform: translateY(0); }
-  .spice-card:hover { background: var(--olive-dark); transform: translateY(-6px); }
+  .spice-card:hover, .spice-card:active { background: var(--hover-bg, var(--olive-dark)); transform: translateY(-6px); }
   .spice-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
   .spice-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--olive-dark); transition: color 0.3s; }
-  .spice-card:hover .spice-name { color: var(--gold-pale); }
+  .spice-card:hover .spice-name, .spice-card:active .spice-name { color: var(--cream); }
 
   /* WHY US */
   #why { background: var(--olive-dark); position: relative; overflow: hidden; }
@@ -404,6 +404,7 @@
   /* RESPONSIVE */
   @media (max-width: 1100px) {
     .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .spices-grid { grid-template-columns: repeat(3, 1fr); }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-top { grid-template-columns: 1fr 1fr; }
   }
@@ -434,6 +435,7 @@
   }
   @media (max-width: 600px) {
     .products-grid { grid-template-columns: 1fr; }
+    .spices-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .why-grid { grid-template-columns: 1fr; }
     .hero-btns { flex-direction: column; }
     .hero-stats { flex-direction: column; gap: 20px; }
@@ -658,43 +660,43 @@
     </div>
 
     <div class="spices-grid">
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #c29b0c;">
         <span class="spice-icon">🌿</span>
         <div class="spice-name">Haldi Powder</div>
       </div>
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #a63026;">
         <span class="spice-icon">🌶️</span>
         <div class="spice-name">Mirchi Powder</div>
       </div>
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #4f7942;">
         <span class="spice-icon">🌱</span>
         <div class="spice-name">Dhaniya Powder</div>
       </div>
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #6e3d22;">
         <span class="spice-icon">✨</span>
         <div class="spice-name">Garam Masala</div>
       </div>
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #c79a38;">
         <span class="spice-icon">🌾</span>
         <div class="spice-name">Besan</div>
       </div>
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #9e6a46;">
         <span class="spice-icon">🫘</span>
         <div class="spice-name">Suji / Rawa</div>
       </div>
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #8a9597;">
         <span class="spice-icon">⛅</span>
         <div class="spice-name">Maida</div>
       </div>
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #a67c52;">
         <span class="spice-icon">🌾</span>
         <div class="spice-name">Wheat Flour</div>
       </div>
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #8c3a3a;">
         <span class="spice-icon">🌿</span>
         <div class="spice-name">Blend Masalas</div>
       </div>
-      <div class="spice-card reveal">
+      <div class="spice-card reveal" style="--hover-bg: #2b2b2b;">
         <span class="spice-icon">✦</span>
         <div class="spice-name">Custom Orders</div>
       </div>

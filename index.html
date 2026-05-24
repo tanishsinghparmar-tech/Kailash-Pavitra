@@ -205,14 +205,28 @@
 
   .hero-right { display: flex; align-items: center; justify-content: center; position: relative; animation: fadeInRight 1s 0.3s ease both; }
   .hero-product-showcase { position: relative; width: 420px; height: 520px; }
-  .product-float {
-    position: absolute; border-radius: 12px; overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(201,146,42,0.1);
-    transition: transform 0.4s;
+  .hero-deck { position: absolute; inset: 0; }
+  .hero-card {
+    position: absolute; width: 220px; height: 300px;
+    top: 50%; left: 50%; margin-top: -150px; margin-left: -110px;
+    border-radius: 12px; cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .product-float:nth-child(1) { width: 220px; height: 280px; top: 0; left: 0; animation: float1 6s ease-in-out infinite; z-index: 3; }
-  .product-float:nth-child(2) { width: 180px; height: 230px; top: 40px; right: 0; animation: float2 7s ease-in-out infinite; z-index: 2; }
-  .product-float:nth-child(3) { width: 200px; height: 260px; bottom: 0; left: 60px; animation: float3 5.5s ease-in-out infinite; z-index: 4; }
+  .hero-card:hover { filter: brightness(1.05); }
+  .hero-card-inner {
+    width: 100%; height: 100%; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15), 0 0 0 1px rgba(201,146,42,0.1);
+  }
+  .hero-bag-title { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; text-align:center; line-height:1.1; }
+  .hero-bag-tag { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; margin:10px 0; font-weight:600; text-align:center; }
+  
+  .float-anim-1 { animation: float1 6s ease-in-out infinite; }
+  .float-anim-2 { animation: float2 7s ease-in-out infinite; }
+  .float-anim-3 { animation: float3 5.5s ease-in-out infinite; }
+
+  .slot-1 { transform: translate(40px, 40px) scale(1); z-index: 3; opacity: 1; }
+  .slot-2 { transform: translate(0px, 0px) scale(0.92); z-index: 2; opacity: 0.95; }
+  .slot-3 { transform: translate(-40px, -40px) scale(0.84); z-index: 1; opacity: 0.8; }
 
   .hero-product-bg {
     position: absolute; inset: -40px;
@@ -501,34 +515,36 @@
     <div class="hero-right">
       <div class="hero-product-showcase">
         <div class="hero-product-bg"></div>
-        <div class="product-float" style="width:215px;height:280px;top:0;left:0">
-          <div class="bag-card" style="background:linear-gradient(145deg,#f0e8d0,#e8d8b0); padding:20px 16px;">
-            <div class="bag-stripe" style="background:linear-gradient(90deg,#4a5c2a,#c9922a,#4a5c2a)"></div>
-            <div class="bag-logo-circle" style="width:75px;height:75px; border:2px solid #c9922a; margin-bottom:14px; box-shadow:0 4px 16px rgba(0,0,0,0.1)">
-              <img src="./logo.png" alt="Logo">
+        <div class="hero-deck">
+          <div class="hero-card slot-1" onclick="nextCard()">
+            <div class="hero-card-inner float-anim-1">
+              <div class="bag-card" style="background:linear-gradient(145deg,#f0e8d0,#e8d8b0); padding:24px 16px;">
+                <div class="bag-stripe" style="background:linear-gradient(90deg,#4a5c2a,#c9922a,#4a5c2a)"></div>
+                <div class="bag-logo-circle" style="width:75px;height:75px; border:2px solid #c9922a; margin-bottom:16px; box-shadow:0 4px 16px rgba(0,0,0,0.1)"><img src="./logo.png" alt="Logo"></div>
+                <div class="hero-bag-title" style="color:#2d3a18;">Chakki<br>Fresh<br>Atta</div>
+                <div class="hero-bag-tag" style="color:#c9922a;">Premium Quality</div>
+              </div>
             </div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#2d3a18;text-align:center;line-height:1.1">Chakki<br>Fresh<br>Atta</div>
-            <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#c9922a;margin:10px 0;font-weight:500">Premium Quality</div>
           </div>
-        </div>
-        <div class="product-float" style="width:178px;height:230px;top:30px;right:0">
-          <div class="bag-card" style="background:linear-gradient(145deg,#e8f0d8,#d8e8c0); padding:16px 14px;">
-            <div class="bag-stripe" style="background:linear-gradient(90deg,#c9922a,#4a5c2a,#c9922a)"></div>
-            <div class="bag-logo-circle" style="width:60px;height:60px; border:2px solid #4a5c2a; margin-bottom:10px;">
-               <img src="./logo.png" alt="Logo">
+          <div class="hero-card slot-2" onclick="nextCard()">
+            <div class="hero-card-inner float-anim-2">
+              <div class="bag-card" style="background:linear-gradient(145deg,#e8f0d8,#d8e8c0); padding:24px 16px;">
+                <div class="bag-stripe" style="background:linear-gradient(90deg,#c9922a,#4a5c2a,#c9922a)"></div>
+                <div class="bag-logo-circle" style="width:75px;height:75px; border:2px solid #4a5c2a; margin-bottom:16px;"><img src="./logo.png" alt="Logo"></div>
+                <div class="hero-bag-title" style="color:#2d3a18;">Multigrain<br><br>Atta</div>
+                <div class="hero-bag-tag" style="color:#4a5c2a;">7 Grains Blend</div>
+              </div>
             </div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#2d3a18;text-align:center;line-height:1.2">Multigrain<br>Atta</div>
-            <div style="font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:#4a5c2a;margin:8px 0;font-weight:600">7 Grains Blend</div>
           </div>
-        </div>
-        <div class="product-float" style="width:198px;height:258px;bottom:0;left:50px">
-          <div class="bag-card" style="background:linear-gradient(145deg,#f5ece0,#edd8c0); padding:18px 15px;">
-            <div class="bag-stripe" style="background:linear-gradient(90deg,#c9922a,#e8b84b,#c9922a)"></div>
-            <div class="bag-logo-circle" style="width:65px;height:65px; border:2px solid #c9922a; margin-bottom:12px; box-shadow:0 3px 12px rgba(201,146,42,0.2)">
-               <img src="./logo.png" alt="Logo">
+          <div class="hero-card slot-3" onclick="nextCard()">
+            <div class="hero-card-inner float-anim-3">
+              <div class="bag-card" style="background:linear-gradient(145deg,#f5ece0,#edd8c0); padding:24px 16px;">
+                <div class="bag-stripe" style="background:linear-gradient(90deg,#c9922a,#e8b84b,#c9922a)"></div>
+                <div class="bag-logo-circle" style="width:75px;height:75px; border:2px solid #c9922a; margin-bottom:16px; box-shadow:0 3px 12px rgba(201,146,42,0.2)"><img src="./logo.png" alt="Logo"></div>
+                <div class="hero-bag-title" style="color:#2d3a18;">High Protein<br><br>Atta</div>
+                <div class="hero-bag-tag" style="color:#c9922a;">Natural · Strong</div>
+              </div>
             </div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:#2d3a18;text-align:center;line-height:1.2">High Protein<br>Atta</div>
-            <div style="font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:#c9922a;margin:8px 0;font-weight:600">Natural · Strong</div>
           </div>
         </div>
       </div>
@@ -803,6 +819,20 @@
       bag.style.boxShadow = '0 10px 30px rgba(0,0,0,0.15)';
     });
   });
+
+  // Hero Card Deck
+  function nextCard() {
+    const cards = document.querySelectorAll('.hero-card');
+    cards.forEach(card => {
+      if (card.classList.contains('slot-1')) {
+        card.classList.remove('slot-1'); card.classList.add('slot-3');
+      } else if (card.classList.contains('slot-2')) {
+        card.classList.remove('slot-2'); card.classList.add('slot-1');
+      } else if (card.classList.contains('slot-3')) {
+        card.classList.remove('slot-3'); card.classList.add('slot-2');
+      }
+    });
+  }
 </script>
 </body>
 </html>
